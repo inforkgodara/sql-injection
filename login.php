@@ -1,26 +1,26 @@
 <?php
-// Initialize the session
+/* Initialize the session */
 session_start();
 
-// Check if the user is already logged in, if yes then redirect him to welcome page
+/* Check if the user is already logged in, if yes then redirect him to welcome page */
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
 {
     header("location: welcome.php");
     exit;
 }
 
-// Include config file
+/* Include config file */
 require_once "config.php";
 
-// Define variables and initialize with empty values
+/* Define variables and initialize with empty values */
 $username = $password = "";
 $username_err = $password_err = "";
 
-// Processing form data when form is submitted
+/* Processing form data when form is submitted */
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 
-    // Check if username is empty
+    /* Check if username is empty */
     if (empty(trim($_POST["username"])))
     {
         $username_err = "Please enter username.";
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $username = trim($_POST["username"]);
     }
 
-    // Check if password is empty
+    /* Check if password is empty */
     if (empty(trim($_POST["password"])))
     {
         $password_err = "Please enter your password.";
@@ -40,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $password = trim($_POST["password"]);
     }
 
-    // Validate credentials
+    /* Validate credentials */
     if (empty($username_err) && empty($password_err))
     {
-        // Prepare a sql query statement
+        /* Prepare a sql query statement */
         $sql = "SELECT id, username, password FROM users WHERE username = '$username' and password = md5('$password') ";
 
         echo $sql;
@@ -54,20 +54,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             session_start();
 
-            // Store data in session variables
+            /* Store data in session variables */
             $_SESSION["loggedin"] = true;
             $_SESSION["id"] = $id;
             $_SESSION["username"] = $username;
 
-            // Redirect user to welcome page
+            /* Redirect user to welcome page */
             header("location: welcome.php");
         }
         else
         {
-            // Display an error message if there is no row selected.
+            /* Display an error message if there is no row selected. */
             $password_err = "The password you entered was not valid.";
         }
-        // Close statement
+        /* Close statement */
         mysqli_close($link);
     }
 }

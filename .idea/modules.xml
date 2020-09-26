@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/php-web-application-sql-injection.iml" filepath="$PROJECT_DIR$/.idea/php-web-application-sql-injection.iml" />
+    </modules>
+  </component>
+</project>

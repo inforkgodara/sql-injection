@@ -2,7 +2,7 @@
 
 SQL injection is a code injection technique, used to attack data-driven applications, in which malicious SQL statements are inserted into an entry field for execution (e.g. to dump the database contents to the attacker). SQL injection must exploit a security vulnerability in an application's software, for example, when user input is either incorrectly filtered for string literal escape characters embedded in SQL statements or user input is not strongly typed and unexpectedly executed. SQL injection is mostly known as an attack vector for websites but can be used to attack any type of SQL database. (wikipedia). It is used in database database technologies. There have been create basic. 
 
-## Practice Approach Development
+## Simple Login Development Approach
 
 A simple php and MySQL based web application is developed which has registration, login, dashboard and logout. The authentication is very common in modern web application. It is a security mechanism that is used to restrict unauthorized access to member-only areas and tools on a site.
 
@@ -387,3 +387,5 @@ header("location: login.php");
 exit;
 ?>
 ```
+
+## Sql Injection Execution Approach

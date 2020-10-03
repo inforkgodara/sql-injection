@@ -46,8 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         /* Prepare a sql query statement */
         $sql = "SELECT id, username, password FROM users WHERE username = '$username' and password = md5('$password') ";
 
-        echo $sql;
-
         $result = mysqli_query($link, $sql);
 
         if (mysqli_num_rows($result) > 0)

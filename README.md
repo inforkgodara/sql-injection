@@ -2,6 +2,17 @@
 
 SQL injection is a code injection technique, used to attack data-driven applications, in which malicious SQL statements are inserted into an entry field for execution (e.g. to dump the database contents to the attacker). SQL injection must exploit a security vulnerability in an application's software, for example, when user input is either incorrectly filtered for string literal escape characters embedded in SQL statements or user input is not strongly typed and unexpectedly executed. SQL injection is mostly known as an attack vector for websites but can be used to attack any type of SQL database. (wikipedia). It is used in database database technologies. There have been create basic. 
 
+## Prerequisites
+
+You must have following programs/packages in order to run this project.
+
+* Apache: 2.4.46
+* PHP: 7.2.33 
+* MariaDB: 10.4.14
+* phpMyAdmin: 5.0.2
+
+Note: the XAMPP server include all above mentioned technologies. https://www.apachefriends.org/download.html 
+
 ## Simple Login Development Approach
 
 A simple php and MySQL based web application is developed which has registration, login, dashboard and logout. The authentication is very common in modern web application. It is a security mechanism that is used to restrict unauthorized access to member-only areas and tools on a site.
@@ -389,3 +400,44 @@ exit;
 ```
 
 ## Sql Injection Execution Approach
+
+SQL injections are one of the most common vulnerabilities found in web applications nowadays. 
+I will explain what a SQL injection attack is and take a look at an example of a simple vulnerable PHP web 
+application accessing a MySQL database. After that, we will look at several methods to prevent this attack, 
+fixing the problem.
+
+As we have already set up our php simple web application now we will try to attach on the developed web application.
+Usually username and password is required to access dashboard (welcome.php) but we will enter following code in username text field and 
+any password you can enter which will not validated while login.
+```
+' or 1 = 1 -- '
+```
+In backend php code will create sql query in the following way.
+```
+SELECT id, username, password FROM users WHERE username = '' or 1 = 1 -- '' and password = md5('123')
+```
+In where clause username field has null value but after that there is or condition which says 1 = 1 that is always true. 
+After or condition there is (--) comment symbols which ignore the rest of the sql where clause. 
+
+SQL Injection code may change as per the php writen code for sql query in single quotation or double quotation.
+
+## Screenshots
+
+### Registration
+![Registration](https://raw.github.com/inforkgodara/php-web-application-sql-injection/master/screenshots/registration.png?raw=true "Registration")
+
+### Login
+![Login](https://raw.github.com/inforkgodara/php-web-application-sql-injection/master/screenshots/login.png?raw=true "Login")
+
+### Sql where clause code in username field
+![SQL code](https://raw.github.com/inforkgodara/php-web-application-sql-injection/master/screenshots/sql-where-clause-code-in-username-field.png?raw=true "SQL where clause code")
+
+### Dashboard
+![Dashboard](https://raw.github.com/inforkgodara/php-web-application-sql-injection/master/screenshots/dashboard.png?raw=true "Dashboard")
+
+### MySQL Database Query
+![MySQL Database Query](https://raw.github.com/inforkgodara/php-web-application-sql-injection/master/screenshots/mysql-database-query.png?raw=true "Database")
+
+## How to avoid sql injection 
+
+* Use prepared statements and parameterized queries

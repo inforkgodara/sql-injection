@@ -441,3 +441,4 @@ SQL Injection code may change as per the php writen code for sql query in single
 ## How to avoid sql injection 
 
 * Use prepared statements and parameterized queries
+* Use PHP frameworks (Symfony, Laravel, Codeigniter, CakePhp and etc.) in which already used prepared statements.

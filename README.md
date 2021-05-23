@@ -443,3 +443,6 @@ SQL Injection code may change as per the php writen code for sql query in single
 
 * Use prepared statements and parameterized queries
 * Use PHP frameworks (Symfony, Laravel, Codeigniter, CakePhp and etc.) in which already used prepared statements.
+
+## Detailed Video
+* Video clip on demonstration: https://youtu.be/KH_4s2WVDK0

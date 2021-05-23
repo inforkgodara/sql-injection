@@ -13,6 +13,9 @@ You must have following programs/packages in order to run this project.
 
 Note: the XAMPP server include all above mentioned technologies. https://www.apachefriends.org/download.html 
 
+## Demo
+* Video clip on demonstration: https://youtu.be/KH_4s2WVDK0
+
 ## Simple Login Development Approach
 
 A simple php and MySQL based web application is developed which has registration, login, dashboard and logout. The authentication is very common in modern web application. It is a security mechanism that is used to restrict unauthorized access to member-only areas and tools on a site.

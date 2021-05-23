@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($username_err) && empty($password_err))
     {
         /* Prepare a sql query statement */
-        $sql = "SELECT id, username, password FROM users WHERE username = '$username' and password = md5('$password') ";
+        $sql = "SELECT id, username FROM users WHERE username = '$username' and password = md5('$password')";
 
         $result = mysqli_query($link, $sql);
 
@@ -89,12 +89,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <input type="text" name="username" autocomplete="off" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" autocomplete="off" class="form-control">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
